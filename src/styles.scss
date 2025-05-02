@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+hr {
+  margin: 1rem 0 2rem 0;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.gap-0\.5 {
+  gap: 0.5rem;
+}
+
+.px-1 {
+  padding-inline: 1rem;
+}

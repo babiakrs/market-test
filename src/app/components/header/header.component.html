@@ -1,0 +1,17 @@
+<mat-form-field>
+  <input
+    matInput
+    placeholder="Пошук"
+    [value]="catalogService.search()"
+    (input)="catalogService.search.set($any($event.target).value)"
+  >
+</mat-form-field>
+
+<div>
+  <mat-button-toggle-group name="sorting" (change)="catalogService.sorting.set($event.value)">
+    <mat-button-toggle value="maxRating">Найвищий рейтинг</mat-button-toggle>
+    <mat-button-toggle value="minPrice">Найдешевший</mat-button-toggle>
+    <mat-button-toggle value="maxPrice">Найдорожчий</mat-button-toggle>
+    <mat-button-toggle value="maxReviews">Найбільше відгуків</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

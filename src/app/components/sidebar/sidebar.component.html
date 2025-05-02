@@ -1,0 +1,59 @@
+<form [formGroup]="form">
+  <div class="flex flex-column">
+    <mat-label>Ціна</mat-label>
+    <mat-slider [min]="catalogService.minPrice()" [max]="catalogService.maxPrice()" step="1" showTickMarks discrete [displayWith]="priceFormatter">
+      <input [value]="catalogService.minPrice()" matSliderStartThumb formControlName="minPrice" [value]="form.controls['minPrice'].value">
+      <input [value]="catalogService.maxPrice()" matSliderEndThumb formControlName="maxPrice" [value]="form.controls['maxPrice'].value">
+    </mat-slider>
+
+    <div class="flex gap-0.5">
+      <mat-form-field>
+        <mat-label>Від</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="minPrice"
+          step="1"
+          [min]="catalogService.minPrice()"
+          [max]="catalogService.maxPrice()"
+          [value]="form.controls['minPrice'].value"
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>До</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="maxPrice"
+          step="1"
+          [min]="catalogService.minPrice()"
+          [max]="catalogService.maxPrice()"
+          [value]="form.controls['maxPrice'].value"
+        >
+      </mat-form-field>
+    </div>
+  </div>
+
+  <hr/>
+
+  <mat-form-field class="w-full">
+    <mat-label>Категорія</mat-label>
+    <mat-select formControlName="categories" multiple>
+      @for (category of catalogService.categories(); track category) {
+        <mat-option [value]="category">{{ category }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <hr/>
+
+  <mat-form-field class="w-full">
+    <mat-label>Бренд</mat-label>
+    <mat-select formControlName="brands" multiple>
+      @for (brand of catalogService.brands(); track brand) {
+        <mat-option [value]="brand">{{ brand }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>

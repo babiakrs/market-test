@@ -1,0 +1,23 @@
+<div class="container">
+  @for (item of catalogService.state(); track item.id) {
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <mat-card-subtitle>Ціна: {{ item.price | currency:item.currency }}</mat-card-subtitle>
+          <mat-card-subtitle>Рейтинг: {{ item.rating }}</mat-card-subtitle>
+          <mat-card-subtitle>Відгуки: {{ item.reviews }}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ item.description }}</p>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-chip-set class="px-1">
+          <mat-chip>{{ item.brand }}</mat-chip>
+          <mat-chip>{{ item.category }}</mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+    </mat-card>
+  }
+</div>
